@@ -23,7 +23,8 @@ $(function() {
     $('#form_reg').on('submit', (e) => {
         e.preventDefault();
         let data = { username: $('#form_reg [name=username]').val(), password: $('#form_reg [name=password]').val() }
-        $.post('/api/reguser',
+        $.post(
+            '/api/reguser',
             data,
             (res) => {
                 if (res.status !== 0) return layer.msg(res.message);
@@ -33,6 +34,7 @@ $(function() {
             }
         )
     })
+
     $('#form_login').on('submit', function(e) {
         e.preventDefault();
         console.log($(this).serialize());
